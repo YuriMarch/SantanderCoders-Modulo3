@@ -9,3 +9,6 @@ Exercício 2:
 
 ![image](https://user-images.githubusercontent.com/78003803/136467165-3b874742-2111-49df-a6ec-a84b4efc1167.png)
 
+Exercício 3:
+
+Criar um módulo calculadora com as operações de adição, multiplicação, subtração, divisão, uma função reset e uma função para listar o histórico de operações.
