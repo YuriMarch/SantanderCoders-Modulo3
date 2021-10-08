@@ -137,30 +137,6 @@ let getVoterResults2 = (array) =>
 
 console.log(getVoterResults2(voters));
 
-// CALCULADORA
-
-let emailModule = () => {
-	let _emails = [{ id: 1, title: "Titulo do email" }];
-
-	const listEmails = () => {
-		return _emails;
-	};
-
-	const deleteEmail = (id) => {
-		_emails = emails.filter((email) => email.id !== id);
-	};
-
-	const sendEmail = (email) => {
-		_emails = [...emails, email];
-	};
-
-	return {
-		deleteEmail,
-		listEmails,
-		sendEmail,
-	};
-};
-
 //EXERCICIO: CRIAR UM MODULO CALCULADORA COM + - * / =
 
 // FUNCAO DE LISTAR TODAS AS OPERACOES JA EXECUTADAS NA CALCULADORA
