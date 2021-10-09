@@ -188,3 +188,49 @@ let calculator = {
 		return `List of operations reseted.`;
 	},
 };
+
+// REFATORANDO A CALCULADORA...
+
+let calculadora = (() => {
+	let listaDeOperacoes = [];
+	const soma = (num1, num2) => num1 + num2;
+	const subtracao = (num1, num2) => num1 - num2;
+	const multiplicacao = (num1, num2) => num1 * num2;
+	const divisao = (num1, num2) => num1 / num2;
+	const potencia = (num1, num2) => num1 ** num2;
+
+	const escolherOperacao = {
+		"+": soma,
+		"-": subtracao,
+		"*": multiplicacao,
+		"/": divisao,
+		"^": potencia,
+	};
+
+	let listarOperacoes = () =>
+		listaDeOperacoes.map((operacao, index) => `Operação ${index + 1}: ${operacao}`);
+
+	let calcular = (num1, operador, num2) => {
+		let resultado = escolherOperacao[operador]
+			? escolherOperacao[operador](num1, num2)
+			: "Operador inválido";
+		let resultadoFormatado = `${num1} ${operador} ${num2} = ${resultado}`;
+		if (resultado !== "Operador inválido") {
+			listaDeOperacoes.push(resultadoFormatado);
+		}
+		return resultadoFormatado;
+	};
+
+	let resetar = () => {
+		num1 = 0;
+		num2 = 0;
+		listaDeOperacoes = [];
+		return "Calculadora resetada.";
+	};
+
+	return {
+		calcular,
+		listarOperacoes,
+		resetar,
+	};
+})();
