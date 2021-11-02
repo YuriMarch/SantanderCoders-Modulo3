@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Exercicio Add & Remove</title>
+	</head>
+	<style>
+		li {
+			list-style: none;
+		}
+	</style>
+	<body>
+		<h2>User List - Yuri March</h2>
+		<h2>Cadastro</h2>
+		<form action="">
+			<input required placeholder="Enter name" type="text" name="name" /><button type="submit">
+				OK
+			</button>
+		</form>
+		<section>
+			<h1>Lista de Usuarios</h1>
+			<ul></ul>
+		</section>
+	</body>
+
+	<script>
+		const userList = document.querySelector("section h1");
+		const input = document.querySelector('input[type="text"]');
+		const form = document.querySelector("form");
+		const ulElement = document.querySelector("ul");
+
+		function createLi(input) {
+			const newLiElement = document.createElement("li");
+			newLiElement.textContent = input + " ";
+			ulElement.appendChild(newLiElement);
+			createRemoveButton(newLiElement);
+		}
+
+		function createRemoveButton(newLiElement) {
+			const newRemoveButton = document.createElement("button");
+			newRemoveButton.textContent = "Remove";
+			newLiElement.appendChild(newRemoveButton);
+			newRemoveButton.addEventListener("click", removeLi);
+		}
+
+		function removeLi(e) {
+			e.target.parentElement.remove();
+		}
+
+		function clearInput() {
+			input.value = "";
+		}
+
+		form.addEventListener("submit", function (e) {
+			e.preventDefault();
+			createLi(input.value);
+			createRemoveAllButton();
+			clearInput();
+		});
+
+		createRemoveAllButton();
+	</script>
+</html>
